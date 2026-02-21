@@ -1,0 +1,99 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-4xl">
+        <div class="flex justify-between items-center border-b pb-2 mb-4">
+            <h1 class="text-xl font-bold text-gray-800">Backend Process for Automated Question Builder</h1>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">1. User Authentication & Authorization</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>User Roles:</strong> There are three user roles—administrator, trainer, and employee.</li>
+                <li><strong>Authentication:</strong> Ensure that only authenticated users access the system via <strong>token-based authentication (JWT)</strong>.</li>
+                <li><strong>Authorization:</strong> Define role-based access control to allow specific actions based on the user’s role (administrator, trainer, employee).
+                    <ul class="list-disc list-inside ml-4">
+                        <li><strong>Administrator:</strong> Manage trainers and employees, and monitor activity.</li>
+                        <li><strong>Trainer:</strong> Create questions, review answers.</li>
+                        <li><strong>Employee:</strong> Take assessments, engage in self-assessments.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">2. Database Management</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Database Models:</strong>
+                    <ul class="list-disc list-inside ml-4">
+                        <li><strong>User Model:</strong> Stores user information, roles, and credentials.</li>
+                        <li><strong>Question Model:</strong> Contains question content, type (multiple choice, true/false, etc.), difficulty level, and correct answers.</li>
+                        <li><strong>Assessment Model:</strong> Tracks assessment history, scores, and progress for employees.</li>
+                        <li><strong>AI Model Storage:</strong> Stores the AI-generated questions and training data.</li>
+                    </ul>
+                </li>
+                <li><strong>Database Queries:</strong>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>Create, update, delete, or retrieve data using <strong>MySQL/MongoDB</strong> queries.</li>
+                        <li>Use <strong>ORM</strong> (Object Relational Mapper) in Django to interact with the database seamlessly.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">3. AI-Driven Question Generation</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Question Data:</strong> Collect and process topic-based data for training the generative AI model.</li>
+                <li><strong>NLP (Natural Language Processing):</strong> Use NLP algorithms in Python to generate questions based on given input topics, ensuring contextual relevance.</li>
+                <li><strong>Question Templates:</strong> Use predefined templates or question banks and modify them based on new content to create dynamic question sets.</li>
+                <li><strong>Quality Check:</strong> AI should check for repetition, difficulty level, and relevance of generated questions.</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">4. Assessment and Learning Process</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Question Assignment:</strong> Based on employee performance, the AI system selects appropriate difficulty levels and types of questions for the employee.</li>
+                <li><strong>Self-Assessment:</strong> Provide employees with the option to generate their own questions for practice, and evaluate their answers automatically using predefined criteria.</li>
+                <li><strong>Progress Tracking:</strong> Track employee progress and results in the backend and update the learning path based on performance analytics.</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">5. Data Processing & AI Monitoring</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Test Monitoring:</strong> AI monitors the test environment (employee’s motion, cheating detection, etc.) during the assessment and sends logs to the backend.</li>
+                <li><strong>Result Calculation:</strong> Once the assessment is completed, calculate the employee’s score and determine feedback.</li>
+                <li><strong>Analytics:</strong> Use data analytics tools to generate reports for trainers and administrators. Data such as question difficulty, user performance, and overall progress should be captured.</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">6. APIs</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>External APIs:</strong> Integrate external APIs if needed for additional features like text-to-speech, or access to large datasets.</li>
+                <li><strong>Internal API Handling:</strong> Use <strong>RESTful APIs</strong> for communication between front-end and back-end, allowing users to fetch, create, update, or delete data related to questions, assessments, and progress.</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">7. Cloud Infrastructure & Storage</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Cloud Hosting:</strong> Use a cloud service provider (e.g., AWS, Google Cloud) for hosting the application and data.</li>
+                <li><strong>Scalability:</strong> Auto-scale the backend services based on demand (number of assessments being conducted concurrently).</li>
+                <li><strong>Storage:</strong> Use cloud-based databases or storage systems for managing large amounts of question and assessment data.</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">8. Security & Compliance</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Encryption:</strong> Ensure data is encrypted at rest and in transit (especially sensitive information like test results and employee data).</li>
+                <li><strong>User Data Privacy:</strong> Implement user data protection protocols and adhere to privacy laws for storing personal information.</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-lg font-bold text-gray-800">9. Logging and Monitoring</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Activity Logging:</strong> Log user activities such as login attempts, question creation, test submissions, etc., for future audits.</li>
+                <li><strong>Real-time Monitoring:</strong> Set up systems for real-time monitoring of AI processes and server health to ensure smooth operation.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
