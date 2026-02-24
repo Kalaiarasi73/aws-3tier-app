@@ -1,23 +1,18 @@
 from flask import Flask
-import mysql.connector
+import boto3
 
 app = Flask(__name__)
+
+dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
+table = dynamodb.Table('users')
 
 @app.route('/')
 def home():
     return "Hello! My AWS 3-Tier App is Running!"
 
 @app.route('/users')
-def users():
-    conn = mysql.connector.connect(
-        host="myprojectdb.cpwcqoq04ztq.ap-south-1.rds.amazonaws.com",
-        user="admin",
-        password="kalaiarasi123",
-        database="myapp"
-    )
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users")
-    result = cursor.fetchall()
+def get_users():
+    result = table.scan()
     return str(result)
 
 if __name__ == '__main__':
